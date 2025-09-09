@@ -258,10 +258,10 @@
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
         console.log('Success!', response)
-        alert('Pesan anda sudah terkirim')
+        alert('Your message been sent already!')
         form.reset()
   })
-      .catch(error => console.error('Error!', error.message))
+      .catch(error => console.error('Error! Message fail', error.message))
   })
 </script>
 
