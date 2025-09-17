@@ -1,0 +1,283 @@
+/* style.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.tab-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.tablink {
+  background-color: #555;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  flex-grow: 1;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, font-size 0.3s ease-in-out, color 0.3s ease-in-out;
+  transform: translateY(0);
+}
+
+.tablink:hover {
+  background-color: #777;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Gaya tab yang aktif */
+.tablink.active {
+    transform: translateY(-5px);
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: none;
+}
+
+/* Menghilangkan garis tebal putih saat tab aktif (fokus) */
+.tablink:focus {
+    outline: none;
+    border-bottom: none;
+}
+
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 40px 20px;
+  min-height: calc(100vh - 60px);
+  /* padding-top: 60px; */
+}
+
+#Home {background-color: #b30059;} /* warna body website */
+#News {background-color: green;} /* warna body website */
+#Contact {background-color: blue;} /* warna body website */
+#About {background-color: rgb(240, 100, 40);} /* warna body website */
+
+#landing-page {
+  background-attachment: fixed;
+  position: relative;
+  height: 100vh;
+  background-size: cover;
+  background-image: url("https://picsum.photos/1920/1080?random=1");
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-text {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+  color: white;
+  font-family: 'Anton', sans-serif;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+@media screen and (max-width: 768px) {
+  .tablink {
+    font-size: 15px;
+    padding: 12px 14px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .tab-container {
+    flex-direction: column;
+  }
+
+  .tablink {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .tablink.active {
+    transform: translateY(0);
+    font-size: 17px;
+  }
+  
+  .welcome-text {
+    font-size: 1.2em;
+    top: 93%;
+  }
+}
+
+/* Accordion Styles - Warna Baru Sesuai Tab */
+
+/* Home Tab - Red Accordions */
+.home-accordion {
+  background-color: #660033; /* Darker red *//* warna accordion saat in-active*/
+  color: #f3ebef; /* warna teks (font) di accordion saat in-active */
+  cursor: pointer;
+  padding: 13px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-top: 5px;
+  position: relative;
+}
+.home-accordion:hover, .home-accordion.active-accordion {
+  background-color: #800040; /* Lighter red on hover/active */ /* warna accordion saat lg di sorot dan di aktifkan */
+  color: #faf4f4;
+  font-weight: 300;
+}
+
+/* Home Panel - Light Red */
+#Home .panel {
+  padding: 0 18px;
+  background-color: #eca5b0;
+  display: none;
+  overflow: hidden;
+}
+#Home .panel p {
+  color: #333;
+}
+
+
+/* News Tab - Green Accordions */
+.news-accordion {
+  background-color: #388e3c; /* Darker green */
+  color: #fff;
+  cursor: pointer;
+  padding: 13px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-top: 5px;
+  position: relative;
+}
+.news-accordion:hover, .news-accordion.active-accordion {
+  background-color: #66bb6a; /* Lighter green on hover/active */
+  color: #000;
+  font-weight: 300;
+}
+
+/* News Panel - Light Green */
+#News .panel {
+  padding: 0 18px;
+  background-color: #e8f5e9;
+  display: none;
+  overflow: hidden;
+}
+#News .panel p {
+  color: #333;
+}
+
+
+/* Contact Tab - Blue Accordions */
+.contact-accordion {
+  background-color: #1976d2; /* Darker blue */
+  color: #fff;
+  cursor: pointer;
+  padding: 13px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-top: 5px;
+  position: relative;
+}
+.contact-accordion:hover, .contact-accordion.active-accordion {
+  background-color: #42a5f5; /* Lighter blue on hover/active */
+  color: #000;
+  font-weight: 300;
+}
+
+/* Contact Panel - Light Blue */
+#Contact .panel {
+  padding: 0 18px;
+  background-color: #e3f2fd;
+  display: none;
+  overflow: hidden;
+}
+#Contact .panel p {
+  color: #333;
+}
+
+
+/* About Tab - Orange Accordions */
+.about-accordion {
+  background-color: #b35900; /* Darker orange */ /* Darker red *//* warna accordion saat in-active*/
+  color: #ceefaf; /* warna teks (font) di accordion saat in-active */
+  cursor: pointer;
+  padding: 13px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-top: 5px;
+  position: relative;
+}
+.about-accordion:hover, .about-accordion.active-accordion {
+  background-color: #a73a0c; /* Lighter orange on hover/active */
+  color: #000;
+  font-weight: 300;
+}
+
+/* About Panel - Light Orange */
+#About .panel {
+  padding: 0 18px;
+  background-color: #fff3e0;
+  display: none;
+  overflow: hidden;
+}
+#About .panel p {
+  color: #403f3f;
+}
+
+
+.plus-icon {
+  position: absolute;
+  right: 18px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  width: 100%;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: #4dd0e1; /* A light blue color for the link */
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

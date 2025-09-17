@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Knowledge Pages</title>
+<link rel="stylesheet" href="style10.css" />
+</head>
+<body>
+
+<div id="landing-page">
+<h1 class="welcome-text">Hello, Welcome on My Knowledge Pages</h1>
+</div>
+
+<div class="tab-container">
+<button class="tablink" onclick="openPage('Home', this, '#b30059')" id="defaultOpen">Home</button>
+<button class="tablink" onclick="openPage('News', this, 'green')">News</button>
+<button class="tablink" onclick="openPage('Contact', this, 'blue')">Contact</button>
+<button class="tablink" onclick="openPage('About', this, '#f06428')">About</button>
+</div>
+
+<div id="Home" class="tabcontent">
+  <h3>Home</h3>
+  <p>Home is where the heart is..</p>
+
+  <button class="accordion home-accordion" id="home-sec-1">Section 1<span class="plus-icon">+</span></button>
+  <div class="panel">
+    <button class="accordion home-accordion" id="home-sec-1-1">Section 1.1<span class="plus-icon">+</span></button>
+    <div class="panel">
+    <p>This is the content for section 1.1. When you click the header, the content will be shown or hidden.</p>
+    </div>
+    <button class="accordion home-accordion" id="home-sec-1-2">Section 1.2<span class="plus-icon">+</span></button>
+    <div class="panel">
+    <p>This is the content for section 1.2. Click the header to show or hide.</p>
+    </div>
+  </div>
+
+  <button class="accordion home-accordion" id="home-sec-2">Section 2<span class="plus-icon">+</span></button>
+  <div class="panel">
+    <button class="accordion home-accordion" id="home-sec-2-1">Section 2.1<span class="plus-icon">+</span></button>
+    <div class="panel">
+    <p>This is the content for section 2.1. Useful information can be found here.</p>
+    </div>
+    <button class="accordion home-accordion" id="home-sec-2-2">Section 2.2<span class="plus-icon">+</span></button>
+    <div class="panel">
+    <p>This is the content for section 2.2. When you click the header, the content will be shown or hidden.</p>
+    </div>
+  </div>
+
+  <button class="accordion home-accordion" id="home-sec-3">Section 3<span class="plus-icon">+</span></button>
+  <div class="panel">
+    <button class="accordion home-accordion" id="home-sec-3-1">Section 3.1<span class="plus-icon">+</span></button>
+    <div class="panel">
+    <p>This is the content for section 3.1. When you click the header, the content will be shown or hidden.</p>
+    </div>
+    <button class="accordion home-accordion" id="home-sec-3-2">Section 3.2<span class="plus-icon">+</span></button>
+    <div class="panel">
+    <p>The main topic for section 3.2 is web development.</p>
+    </div>
+  </div>
+</div>
+
+<div id="News" class="tabcontent">...</div>
+<div id="Contact" class="tabcontent">...</div>
+<div id="About" class="tabcontent">...</div>
+
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+    tablinks[i].classList.remove("active");
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+  elmnt.classList.add("active");
+}
+
+document.getElementById("defaultOpen").click();
+
+// Accordion Script
+var acc = document.getElementsByClassName("accordion");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active-accordion");
+    var panel = this.nextElementSibling;
+    var plusIcon = this.querySelector(".plus-icon");
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+      plusIcon.textContent = "+";
+    } else {
+      panel.style.display = "block";
+      plusIcon.textContent = "-";
+    }
+  });
+}
+
+// --- NEW SCRIPT TO OPEN ACCORDIONS FROM URL ---
+window.addEventListener('load', function() {
+  if (window.location.hash) {
+    const ids = window.location.hash.substring(1).split(',');
+    
+    ids.forEach(id => {
+      const element = document.getElementById(id);
+      if (element) {
+        // Function to open an accordion and its parents
+        const openAccordion = (elem) => {
+          // Open the current accordion if it's not already active
+          if (!elem.classList.contains('active-accordion')) {
+            elem.click();
+          }
+
+          // Check for a parent panel and open its corresponding accordion
+          const parentPanel = elem.closest('.panel');
+          if (parentPanel) {
+            const parentAccordion = parentPanel.previousElementSibling;
+            if (parentAccordion && parentAccordion.classList.contains('accordion')) {
+              openAccordion(parentAccordion); // Recursively open parent
+            }
+          }
+        };
+        openAccordion(element);
+      }
+    });
+  }
+});
+</script>
+
+<footer>
+  <p>&copy;2025 Knowledge-Pages. All Rights Reserved.</p>
+  <p>Contact us: &#9993; <a href="mailto:info@example.com">hoctovianus@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
