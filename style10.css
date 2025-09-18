@@ -98,7 +98,7 @@ body, html {
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 480px) {
   .tab-container {
     flex-direction: column;
   }
@@ -114,8 +114,8 @@ body, html {
   }
   
   .welcome-text {
-    font-size: 1.2em;
-    top: 83%;
+    font-size: 1.0em;
+    top: 73%;
   }
 }
 
@@ -282,3 +282,4 @@ footer a:hover {
   text-decoration: underline;
 
 }
+
