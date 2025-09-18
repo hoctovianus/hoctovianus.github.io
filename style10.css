@@ -115,7 +115,7 @@ body, html {
   
   .welcome-text {
     font-size: 1.0em;
-    top: 73%;
+    top: 90%;
   }
 }
 
@@ -282,4 +282,5 @@ footer a:hover {
   text-decoration: underline;
 
 }
+
 
