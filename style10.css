@@ -283,6 +283,55 @@ footer a:hover {
 
 }
 
+/* style10.css - Tambahkan kode ini di bagian paling bawah */
+
+/* Media Query untuk Perangkat Handphone dalam Posisi Lanskap */
+@media screen and (max-width: 900px) and (orientation: landscape) {
+  /* Tata letak tab-container yang lebih rapi */
+  .tab-container {
+    flex-direction: row; /* Pastikan tab tetap horizontal */
+    flex-wrap: nowrap;
+    justify-content: space-around;
+  }
+
+  /* Mengurangi padding pada tablink agar tidak terlalu tinggi */
+  .tablink {
+    padding: 8px 10px;
+    font-size: 14px;
+    white-space: nowrap; /* Mencegah teks terpotong */
+  }
+
+  /* Mengatur ulang gaya tab aktif */
+  .tablink.active {
+    font-size: 16px;
+    transform: translateY(-3px); /* Gerakan lebih kecil */
+  }
+
+  /* Menyesuaikan tinggi konten agar tidak terpotong */
+  .tabcontent {
+    min-height: auto; /* Biarkan tinggi konten menyesuaikan isinya */
+    padding: 20px 10px; /* Kurangi padding untuk menghemat ruang vertikal */
+  }
+
+  /* Mengatur ukuran teks selamat datang agar lebih kecil */
+  .welcome-text {
+    font-size: 1.5em; /* Ukuran lebih kecil untuk layar lanskap */
+    top: 50%; /* Posisikan lebih ke tengah */
+    transform: translate(-50%, -50%);
+  }
+
+  /* Menyesuaikan ukuran font dan padding pada akordion */
+  .accordion {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  /* Mengurangi margin pada footer */
+  footer {
+    padding: 10px;
+  }
+}
+
 
 
 
