@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situs Web Responsif</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Gaya dasar untuk semua layar (mobile-first approach) */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d9dbe0;
+            color: #333;
+        }
+
+        /* Hero section untuk gambar latar belakang penuh layar */
+        .hero-section {
+            height: 100vh; /* Memastikan hero section memenuhi tinggi viewport */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            background-image: url('https://picsum.photos/1920/1080?random=1');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Overlay semi-transparan untuk membuat teks lebih mudah dibaca */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Kontainer konten yang berada di atas gambar latar belakang */
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            /* margin-top: auto;
+            padding-bottom: 50px; */
+            margin-top: 0;
+            padding-bottom: 0;
+            top: 230px;
+        }
+        
+        /* Container utama untuk konten di bawah hero section */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 94%;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Card untuk konten */
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            font-weight: 700;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Contoh tata letak Grid responsif */
+        .grid-container {
+            display: grid;
+            gap: 20px;
+            /* Kolom akan menyesuaikan secara otomatis, dengan lebar minimum 250px */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Media Queries untuk breakpoint tablet dan desktop */
+        /* --- Layar tablet (lebar maks 768px) --- */
+        @media (max-width: 768px) {
+            .main-container {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+        /* Media Query tambahan untuk memastikan teks lebih kecil di layar yang sangat sempit */
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.2rem; /* Ukuran font diperkecil untuk layar handphone */
+            }
+            .hero-content p {
+                font-size: 0.9rem; /* Ukuran font diperkecil untuk layar handphone */
+            }
+            .hero-content {
+                top: 200px;  /* lebih tinggi lagi di layar HP */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="hero-content">
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-2">Situs Web Super Responsif</h1>
+            <p class="text-md sm:text-lg font-medium relative top-[-5px]">Desain yang beradaptasi dengan setiap layar.</p>
+
+        </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+
+        <section class="card">
+            <h2 class="text-xl font-bold mb-4">Tentang Desain Responsif</h2>
+            <p>
+                Proses pengadaan di proyek EPC migas biasanya terstruktur dan mengikuti beberapa tahapan utama
+            </p>
+        </section>
+
+        <section class="card">
+            <h2 class="text-xl font-bold mb-4">Tahapan tersebut meliputi</h2>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex-1 card p-4 bg-gray-100">
+                    <h3 class="font-bold text-lg">Perencanaan dan Strategi Pengadaan</h3>
+                    <p class="text-gray-500 text-sm mt-1">Tahap awal ini melibatkan tim proyek untuk menentukan jenis material dan jasa apa saja yang dibutuhkan, 
+                    kapan dibutuhkan, dan dari mana sumbernya. Mereka juga menyusun strategi untuk memilih vendor (pemasok) atau kontraktor yang paling kompeten. 
+                    Perencanaan yang matang sangat penting karena kesalahan di tahap ini bisa berdampak besar pada jadwal dan biaya proyek.</p>
+                </div>
+                <div class="flex-1 card p-4 bg-gray-100">
+                    <h3 class="font-bold text-lg">Permintaan Penawaran (Request for Quotation/RFQ)</h3>
+                    <p class="text-gray-500 text-sm mt-1">Setelah daftar material dan jasa dibuat, tim procurement akan mengirimkan RFQ kepada vendor yang telah 
+                    lolos kualifikasi. Dokumen ini berisi spesifikasi teknis yang sangat detail, jumlah yang dibutuhkan, jadwal pengiriman, dan syarat-syarat 
+                    komersial lainnya. . Tujuannya agar vendor dapat memberikan penawaran harga yang akurat dan komprehensif.</p>
+                </div>
+                <div class="flex-1 card p-4 bg-gray-100">
+                    <h3 class="font-bold text-lg">Evaluasi Penawaran</h3>
+                    <p class="text-gray-500 text-sm mt-1">Tim procurement, bersama dengan tim teknis, akan mengevaluasi semua penawaran yang masuk. 
+                    Evaluasi ini tidak hanya fokus pada harga, tetapi juga pada aspek teknis (apakah produk/jasa memenuhi spesifikasi), rekam jejak vendor, 
+                    kualitas produk, dan jadwal pengiriman. Penilaian ini seringkali menggunakan sistem skor untuk memastikan objektivitas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2 class="text-xl font-bold mb-4">Tata Letak Grid</h2>
+            <div class="grid-container">
+                <div class="card p-4 bg-gray-100">
+                    <h3 class="font-bold text-lg">Kolom 1</h3>
+                    <p class="text-gray-500 text-sm mt-1">Grid sangat cocok untuk tata letak yang kompleks, seperti galeri foto.</p>
+                </div>
+                <div class="card p-4 bg-gray-100">
+                    <h3 class="font-bold text-lg">Kolom 2</h3>
+                    <p class="text-gray-500 text-sm mt-1">Kolom akan menyesuaikan ukurannya secara otomatis dan beradaptasi.</p>
+                </div>
+                <div class="card p-4 bg-gray-100">
+                    <h3 class="font-bold text-lg">Kolom 3</h3>
+                    <p class="text-gray-500 text-sm mt-1">Anda juga dapat mengontrol jarak antar kolom dan baris dengan properti 'gap'.</p>
+                </div>
+                <div class="card p-4 bg-gray-100">
+                    <h3 class="font-bold text-lg">Kolom 4</h3>
+                    <p class="text-gray-500 text-sm mt-1">Contoh tambahan untuk menunjukkan bagaimana grid bekerja dengan banyak item.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm py-1 mt-8">
+            <p>&copy; 2024 Contoh Website Responsif</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
